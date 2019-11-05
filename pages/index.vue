@@ -2,6 +2,7 @@
   <div class="mainContainer">
     <div class="navBarContainer">
       <NavBar />
+      <List />
     </div>
     <div class="chooseMovieContainer">
       <div class="filterRow">
@@ -19,11 +20,13 @@ import Logo from '~/components/Logo.vue'
 import NavBar from '~/components/NavBar.vue'
 import FilterRow from '~/components/Filter.vue'
 import Cards from '~/components/Cards.vue'
+import List from '~/components/List.vue'
 
 export default {
   components: {
     Logo,
     NavBar,
+    List,
     FilterRow,
     Cards
   }

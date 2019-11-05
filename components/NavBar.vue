@@ -61,7 +61,7 @@
 
     .title, .submit, .signUp, .logIn {
         max-height: 45px !important;
-        margin-right: 10px;
+        margin-right: 20px;
         border-radius: 30px !important;
     }
 
