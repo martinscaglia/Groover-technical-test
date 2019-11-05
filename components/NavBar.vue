@@ -28,11 +28,11 @@
     }
 
     .submit {
-        font-weight: 500 !important;
+        font-weight: 400 !important;
     }
     
     h2 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .logo {

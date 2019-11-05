@@ -1,5 +1,8 @@
 <template>
     <div class="cardWrapper">
+
+<!-- TOP CONTENT -->
+
         <div class="cardHeadWrapper">
             <h1>Choose your movies</h1>
             <h3>They will be added to your playlist</h3>
@@ -28,6 +31,8 @@
                         </v-list>
         </div>
 
+<!-- CARD DISPLAY -->
+
         <div class="cardDisplayWrapper">
             <v-card
             :loading="loading"
@@ -35,8 +40,8 @@
             max-width="300"
             >
                 <v-img
-                    height="300"
-                    src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
                 ></v-img>
             
                 <v-card-title class="movieTitle">The Shining</v-card-title>
@@ -117,10 +122,14 @@
 
     .cardWrapper {
         display: block;
+        margin-left: 5px;
     }
 
+    .cardHeadWrapper {
+        margin-top: 5px;
+    }
     h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
     h3 {
         font-size: 15px;
@@ -139,14 +148,16 @@
 
     .cardDisplayWrapper {
         margin-top: 10px;
-        height: 900px;
+        height: 1020px;
         width: 100%;
+        overflow: scroll;
         background-color: rgba(0, 0, 255, 0.267);
     }
 
     .row {
         margin-top: -5px;
         margin-bottom: 12px;
+        margin-left: 0px;
     }
     .director {
         font-weight: 700;
@@ -170,7 +181,7 @@
         color: rgba(255, 72, 0, 0.733) !important; 
         border-radius: 30px;
         margin-left: 40px;
-        margin-top: 5px;
+        margin-top: 10px;
     }
     .addButton:hover {
         background-color: rgba(255, 72, 0, 0.04);
