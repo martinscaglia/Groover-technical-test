@@ -53,7 +53,7 @@ export default {
 
 .filterRow {
   min-width: 270px;
-  height: 520px;
+  height: 550px;
   margin-left: 40px;
   margin-right: 40px;
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -66,6 +66,7 @@ export default {
   padding: 10px 20px;
   border-radius: 30px;
   width: 100%;
+  margin-right: 40px;
 }
 
 </style>

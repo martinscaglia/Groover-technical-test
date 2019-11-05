@@ -83,6 +83,7 @@
     }
 
     .chip {
+        margin-left: 10px;
         border: 1px solid rgba(255, 72, 0, 0.733) !important;
         background-color: rgba(255, 255, 255, 0) !important;
     }
