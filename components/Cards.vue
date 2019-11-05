@@ -150,10 +150,7 @@
 
     .cardDisplayWrapper {
         margin-top: 10px;
-        height: 1020px;
         width: 100%;
-        overflow: scroll;
-        /* background-color: rgba(0, 0, 255, 0.267); */
     }
 
     .row {

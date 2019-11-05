@@ -73,13 +73,8 @@
       }
       
       .cardRow {
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        padding: 10px 20px;
-        border-radius: 30px;
         width: 100%;
         margin-right: 40px;
-        background-color: rgba(255, 255, 255, 1);
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
       }
       
       </style>
