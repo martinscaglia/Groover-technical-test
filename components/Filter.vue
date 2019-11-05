@@ -67,7 +67,7 @@
     }
 
     #year {
-        margin-top: 30px;
+        margin-top: 40px;
     }
 
     hr {
@@ -83,7 +83,8 @@
     }
 
     .chip {
-        margin-left: 10px;
+        margin-left: 7px;
+        margin-top: 7px;
         border: 1px solid rgba(255, 72, 0, 0.733) !important;
         background-color: rgba(255, 255, 255, 0) !important;
     }

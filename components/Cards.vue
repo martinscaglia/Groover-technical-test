@@ -27,69 +27,75 @@
                   
                         </v-list>
         </div>
+
         <div class="cardDisplayWrapper">
-                <v-card
-                :loading="loading"
-                class="mx-auto my-12"
-                max-width="300"
-              >
+            <v-card
+            :loading="loading"
+            class="x-auto my-12"
+            max-width="300"
+            >
                 <v-img
-                  height="300"
-                  src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                    height="300"
+                    src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                 ></v-img>
             
                 <v-card-title class="movieTitle">The Shining</v-card-title>
 
-                <div id="year" class="my-4 subtitle-1 black--text">1980</div>
-            
                 <v-card-text>
-                  <v-row
+                    
+                    <v-row
                     :align="center"
-                    class="mx-0"
-                  >
-                    <v-rating
-                      :value="4"
-                      color="amber"
-                      dense
-                      half-increments
-                      readonly
-                      size="14"
-                      class="ratingOnCard"
-                    ></v-rating>
-            
-                  </v-row>
-            
-                  <div class="my-4 subtitle-1 black--text">
-                    Directed by Stanley Kubrick
-                  </div>
-            
-                  <div>Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.</div>
-                </v-card-text>
-            
-                <v-card-text>
+                    class="row"
+                    >
 
-                  <v-chip-group
-                    v-model="selection"
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
                     active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
                     column
-                  >
+                    >
                     <v-chip>Horror</v-chip>
                     <v-chip>Thriller</v-chip>
             
-                  </v-chip-group>
+                    </v-chip-group>
 
-                </v-card-text>
-            
-                <v-card-actions>
+                    <!-- BUTTON -->
+                    
                     <v-btn
                     color="deep-purple accent-4"
                     text
-                    @click="reserve"
+                    class="addButton"
+                    @click="addToPlaylist"
                     >
                     + Add to playlist
                     </v-btn>
-                </v-card-actions>
-              </v-card>            
+
+                </v-card-text>
+           
+            </v-card>            
         </div>
     </div>
 </template>
@@ -123,7 +129,9 @@
 
     .cardOptionsWrapper {
         display: flex;
+        margin-top: 20px;
     }
+
     .searchInput, .sortBy {
         max-width: 300px;
     }
@@ -135,4 +143,31 @@
         width: 100%;
         background-color: rgba(0, 0, 255, 0.267);
     }
+
+    .row {
+        margin-top: -5px;
+        margin-bottom: 12px;
+    }
+    .director {
+        font-weight: 700;
+    }
+    .synopsis {
+        font-style: italic;
+    }
+
+    .mx-0 {
+        margin-left: 0px;
+    }
+    .ratingOnCard {
+        margin-left: 5px;
+    }
+
+    .movieGenre {
+        margin-top: 5px;
+    }
+    .addButton {
+        margin-left: 40px;
+        margin-top: 5px;
+    }
+
 </style>
