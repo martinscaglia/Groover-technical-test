@@ -13,6 +13,7 @@
           <v-btn class="signUp" text>Sign Up</v-btn>
           <v-btn class="logIn" text>Log In</v-btn>
         </v-toolbar-items>
+
   
     </div>
   </template>

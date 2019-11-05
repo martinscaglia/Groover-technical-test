@@ -15,7 +15,7 @@
                 >
                     <template v-slot:activator>
                         <v-list-item-content>
-                            <v-list-item-title>Sort by</v-list-item-title>
+                            <v-list-item-title>Sort by <strong>{{sortOptions[0]}}</strong></v-list-item-title>
                         </v-list-item-content>
                     </template>
             
@@ -35,7 +35,6 @@
 
         <div class="cardDisplayWrapper">
             <v-card
-            :loading="loading"
             class="x-auto my-12"
             max-width="300"
             >
@@ -49,7 +48,6 @@
                 <v-card-text>
                     
                     <v-row
-                    :align="center"
                     class="row"
                     >
 
@@ -110,9 +108,14 @@
         data() {
             return {
                 sortOptions: [
-                    "Best rated",
+                    "Highest Rating",
                     "Most Recent"
                 ]
+            }
+        },
+        methods: {
+            addToPlaylist(movieId) {
+
             }
         }
     }
