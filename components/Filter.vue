@@ -85,7 +85,7 @@
     .chip {
         margin-left: 7px;
         margin-top: 7px;
-        border: 1px solid rgba(255, 72, 0, 0.733) !important;
+        border: 1px solid rgba(255, 72, 0, 0.933) !important;
         background-color: rgba(255, 255, 255, 0) !important;
     }
     .chip:hover {

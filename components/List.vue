@@ -28,9 +28,9 @@
         font-weight: 600;
     }
     .watchNowButton {
-        margin-top: 6px;
+        margin-top: 3px;
         margin-right: 35px;
-        height: 40px !important;
+        height: 46px !important;
         border: 1px solid rgba(255, 72, 0, 0.733);
         border-radius: 30px !important;
         color: rgba(255, 72, 0, 0.733) !important; 

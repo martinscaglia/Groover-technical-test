@@ -8,27 +8,27 @@
             <h3>They will be added to your playlist</h3>
         </div>
         <div class="cardOptionsWrapper">
-                <v-text-field class="searchInput" placeholder="What movie are you looking for?"></v-text-field>
-                <v-list class="sortBy"> 
-                          <v-list-group
-                            no-action
-                          >
-                            <template v-slot:activator>
-                              <v-list-item-content>
-                                <v-list-item-title>Sort by</v-list-item-title>
-                              </v-list-item-content>
-                            </template>
-                  
-                            <v-list-item
-                              v-for="(option) in sortOptions"
-                              :key="option"
-                              link
-                            >
-                              <v-list-item-title v-text="option"></v-list-item-title>
-                            </v-list-item>
-                          </v-list-group>
-                  
-                        </v-list>
+            <v-text-field class="searchInput" placeholder="What movie are you looking for?"></v-text-field>
+            <v-list class="sortBy"> 
+                <v-list-group
+                no-action
+                >
+                    <template v-slot:activator>
+                        <v-list-item-content>
+                            <v-list-item-title>Sort by</v-list-item-title>
+                        </v-list-item-content>
+                    </template>
+            
+                    <v-list-item
+                        v-for="(option) in sortOptions"
+                        :key="option"
+                        link
+                    >
+                        <v-list-item-title v-text="option"></v-list-item-title>
+                    </v-list-item>
+                </v-list-group>
+        
+            </v-list>
         </div>
 
 <!-- CARD DISPLAY -->
@@ -145,13 +145,12 @@
         max-width: 300px;
     }
 
-
     .cardDisplayWrapper {
         margin-top: 10px;
         height: 1020px;
         width: 100%;
         overflow: scroll;
-        background-color: rgba(0, 0, 255, 0.267);
+        /* background-color: rgba(0, 0, 255, 0.267); */
     }
 
     .row {
