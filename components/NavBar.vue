@@ -2,8 +2,8 @@
     <div class="navBar">
 
         <div class="logo">
-            <div class="title1" text><a class="t1" href="#"><h4>Hypertube</h4></a></div>
-            <div class="title2" text><a class="t2" href="#"><h4>Hypertube</h4></a></div>
+            <div class="title1" text><a class="t1" href="#"><h4>Moover</h4></a></div>
+            <div class="title2" text><a class="t2" href="#"><h4>Moover</h4></a></div>
         </div>
   
         <v-spacer></v-spacer>
