@@ -123,13 +123,13 @@
         font-size: 26px;
     }
     h3 {
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 10 !important;
     }
 
     .cardOptionsWrapper {
         display: flex;
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
     .searchInput, .sortBy {
@@ -138,7 +138,7 @@
 
 
     .cardDisplayWrapper {
-        margin-top: 30px;
+        margin-top: 10px;
         height: 900px;
         width: 100%;
         background-color: rgba(0, 0, 255, 0.267);
@@ -166,8 +166,14 @@
         margin-top: 5px;
     }
     .addButton {
+        border: 1px solid rgba(255, 72, 0, 0.533) !important;
+        color: rgba(255, 72, 0, 0.733) !important; 
+        border-radius: 30px;
         margin-left: 40px;
         margin-top: 5px;
+    }
+    .addButton:hover {
+        background-color: rgba(255, 72, 0, 0.04);
     }
 
 </style>

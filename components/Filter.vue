@@ -89,7 +89,7 @@
         background-color: rgba(255, 255, 255, 0) !important;
     }
     .chip:hover {
-        background-color: rgba(255, 72, 0, 0.06) !important;
+        background-color: rgba(255, 72, 0, 0.09) !important;
     }
 
     .stars {

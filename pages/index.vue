@@ -46,7 +46,7 @@ export default {
 
 .chooseMovieContainer {
   width: 100vw;
-  height: 80%;
+  height: 90%;
   margin-top: 40px;
   display: flex;
 }

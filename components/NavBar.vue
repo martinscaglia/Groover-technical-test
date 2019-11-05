@@ -1,7 +1,10 @@
 <template>
     <div class="navBar">
 
-        <v-btn class="title" text><h1>Hypertube</h1></v-btn>
+        <div class="logo">
+            <div class="title1" text><a class="t1" href="#"><h4>Hypertube</h4></a></div>
+            <div class="title2" text><a class="t2" href="#"><h4>Hypertube</h4></a></div>
+        </div>
   
         <v-spacer></v-spacer>
   
@@ -32,10 +35,30 @@
         font-size: 18px;
     }
 
-    .title {
-        margin-top: 5px;
+    .logo {
+        margin-top: 3px;
+        margin-left: 30px;
     }
-    
+    a {
+        text-decoration: none;
+    }
+    h4 {
+        font-size: 33px;
+    }
+    .t1 {
+        color: rgba(0, 0, 0, 0.901);
+    }
+    .t2 {
+        color: rgba(255, 72, 0, 1);
+    }
+    .title1, .title2 {
+        position: absolute;
+    }
+    .title1 {
+        margin-left: 1.4px;
+        margin-top: 1.4px;
+    }
+
     .title, .submit, .signUp, .logIn {
         max-height: 45px !important;
         margin-right: 10px;
@@ -49,7 +72,7 @@
         color: rgba(255, 72, 0, 0.733) !important; 
     }
     .signUp:hover {
-        background-color: rgba(255, 72, 0, 0.02);
+        background-color: rgba(255, 72, 0, 0.04);
     }
 
     .title:hover, .submit:hover, .logIn:hover {
