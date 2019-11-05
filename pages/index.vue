@@ -1,53 +1,71 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        tuto-nuxt
-      </h1>
+  <div class="mainContainer">
+    <div class="navBarContainer">
+      <NavBar />
+    </div>
+    <div class="chooseMovieContainer">
+      <div class="filterRow">
+        <FilterRow />
+      </div>
+      <div class="cardRow">
+        <Cards />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import NavBar from '~/components/NavBar.vue'
+import FilterRow from '~/components/Filter.vue'
+import Cards from '~/components/Cards.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    NavBar,
+    FilterRow,
+    Cards
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center; */
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.navBarContainer {
+  width: 100vw;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.chooseMovieContainer {
+  width: 100vw;
+  height: 80%;
+  margin-top: 40px;
+  display: flex;
 }
 
-.links {
-  padding-top: 15px;
+.filterRow {
+  min-width: 270px;
+  height: 520px;
+  margin-left: 40px;
+  margin-right: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 20px;
+  border-radius: 30px;
 }
+
+.cardRow {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 20px;
+  border-radius: 30px;
+  width: 100%;
+}
+
 </style>

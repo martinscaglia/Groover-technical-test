@@ -1,6 +1,4 @@
-# tuto-nuxt
-
-> My praiseworthy Nuxt.js project
+# Groover-technical-test
 
 ## Build Setup
 
