@@ -1,6 +1,7 @@
 <template>
     <div id="listBar" class="listBar">
-        <div class="listLabel">Your playlist contains 2 movies</div>
+        <div v-if="parseInt(moviesInPlaylist) == 1" class="listLabel">Your playlist contains {{parseInt(moviesInPlaylist)}} movie</div>
+        <div v-if="parseInt(moviesInPlaylist) > 1" class="listLabel">Your playlist contains {{parseInt(moviesInPlaylist)}} movies</div>
         <v-spacer></v-spacer>
         <v-btn class="watchNowButton" text>Watch now</v-btn>
     </div>
@@ -8,6 +9,9 @@
 
 <script>
 export default {
+    props: {
+            moviesInPlaylist: Number,
+        },
   mounted() {
     
   },

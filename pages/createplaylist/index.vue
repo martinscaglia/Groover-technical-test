@@ -3,15 +3,17 @@
           <div class="navBarContainer">
             <NavBar />
           </div>
-          <div class="listBarContainer">
-            <List />
+          <div v-if="movie > 0" class="listBarContainer">
+            <List :moviesInPlaylist="movie"/>
           </div>
           <div class="chooseMovieContainer">
             <div class="filterRow">
               <FilterRow />
             </div>
             <div class="cardRow">
-              <Cards />
+              <Cards 
+              :moviesInPlaylist="movie"
+              @updateMovie="updateMovieParent"/>
             </div>
           </div>
         </div>
@@ -31,6 +33,31 @@
             List,
             FilterRow,
             Cards
+          },
+          data() {
+            return {
+              movie: Number,
+              movieListIds: []
+            }
+          },
+          asyncData() {
+            return {
+
+            }
+        },
+          created() {
+            this.movie = 0;
+          },
+          // watch: {
+          //   movie: function(oldVal, newVal) {
+          //     console.log(oldVal, newVal);
+          //   }
+          // },
+          methods: {
+            updateMovieParent(value) {
+              this.movie += value;
+              console.log(this.movie);
+            }
           }
         }
       </script>
@@ -63,7 +90,7 @@
       
       .chooseMovieContainer {
         width: 100vw;
-        height: 1200px;
+        height: 1900px;
         margin-top: 40px;
         display: flex;
       }

@@ -7,7 +7,7 @@
         </div>
         <div id="year" class="filterBlock">
             <div class="genreTitle">Year</div>
-            <v-range-slider v-model="rangeValue" @change="updateResults"></v-range-slider>
+            <v-range-slider v-model="rangeValue"></v-range-slider>
             <!-- <hr> -->
         </div>
         <div class="filterBlock">
