@@ -2,6 +2,8 @@
         <div class="mainContainer">
           <div class="navBarContainer">
             <NavBar />
+          </div>
+          <div class="listBarContainer">
             <List />
           </div>
           <div class="chooseMovieContainer">
@@ -16,21 +18,21 @@
       </template>
       
       <script>
-      import Logo from '~/components/Logo.vue'
-      import NavBar from '~/components/NavBar.vue'
-      import FilterRow from '~/components/Filter.vue'
-      import Cards from '~/components/Cards.vue'
-      import List from '~/components/List.vue'
-      
-      export default {
-        components: {
-          Logo,
-          NavBar,
-          List,
-          FilterRow,
-          Cards
+        import Logo from '~/components/Logo.vue'
+        import NavBar from '~/components/NavBar.vue'
+        import FilterRow from '~/components/Filter.vue'
+        import Cards from '~/components/Cards.vue'
+        import List from '~/components/List.vue'
+        
+        export default {
+          components: {
+            Logo,
+            NavBar,
+            List,
+            FilterRow,
+            Cards
+          }
         }
-      }
       </script>
       
       <style>
@@ -41,16 +43,22 @@
       .mainContainer {
         width: 100vw;
         height: 100vh;
-      
-        /* display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center; */
       }
       
       .navBarContainer {
         width: 100vw;
         background-color: rgba(255, 255, 255, 1);
+        height: 70px;
+      }
+
+      .listBarContainer {
+        position: sticky;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        margin-top: 4px;
+        top: 0px;
+        z-index: 100;
       }
       
       .chooseMovieContainer {

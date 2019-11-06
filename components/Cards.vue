@@ -35,7 +35,7 @@
 
         <div class="cardDisplayWrapper">
             <v-card
-            class="x-auto my-12"
+            class="v-card"
             max-width="300"
             >
                 <v-img
@@ -91,14 +91,601 @@
                     color="deep-purple accent-4"
                     text
                     class="addButton"
-                    @click="addToPlaylist"
+                    @click="addToPlaylist(1)"
                     >
                     + Add to playlist
                     </v-btn>
 
                 </v-card-text>
            
-            </v-card>            
+            </v-card>
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card>             
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            <var><var>v</var></var>
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            <v-card
+            class="v-card"
+            max-width="300"
+            >
+                <v-img
+                    width="430"
+                    src="https://yts.lt/assets/images/movies/7_days_to_vegas_2019/large-cover.jpg"
+                ></v-img>
+            
+                <v-card-title class="movieTitle">The Shining</v-card-title>
+
+                <v-card-text>
+                    
+                    <v-row
+                    class="row"
+                    >
+
+                        <div class="releaseYear">1980 /</div>
+
+                        <v-rating
+                            :value="4"
+                            color="amber"
+                            dense
+                            half-increments
+                            readonly
+                            size="14"
+                            class="ratingOnCard"
+                        ></v-rating>
+            
+                    </v-row>
+            
+                    <div class="director">
+                        Directed by Stanley Kubrick
+                    </div>
+            
+                    <div class="synopsis">
+                        Small plates, salads & sandwiches an inteimate setting with 12 indoor seats plus patio seating.
+                    </div>
+                
+                    <!-- CHIPS -->
+
+                    <v-chip-group
+                    active-class="deep-purple accent-4 white--text"
+                    class="movieGenre"
+                    column
+                    >
+                    <v-chip>Horror</v-chip>
+                    <v-chip>Thriller</v-chip>
+            
+                    </v-chip-group>
+
+                    <!-- BUTTON -->
+                    
+                    <v-btn
+                    color="deep-purple accent-4"
+                    text
+                    class="addButton"
+                    @click="addToPlaylist(1)"
+                    >
+                    + Add to playlist
+                    </v-btn>
+
+                </v-card-text>
+           
+            </v-card> 
+            
         </div>
     </div>
 </template>
@@ -115,7 +702,7 @@
         },
         methods: {
             addToPlaylist(movieId) {
-
+                console.log(movieId);
             }
         }
     }
@@ -149,8 +736,14 @@
     }
 
     .cardDisplayWrapper {
+        display: flex;
+        flex-wrap: wrap;
         margin-top: 10px;
         width: 100%;
+    }
+    .v-card {
+        margin-right: 40px;
+        margin-bottom: 40px;
     }
 
     .row {

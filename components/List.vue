@@ -1,23 +1,36 @@
 <template>
-    <div class="listBar">
+    <div id="listBar" class="listBar">
         <div class="listLabel">Your playlist contains 2 movies</div>
         <v-spacer></v-spacer>
-        <!-- <v-toolbar-items> -->
-                <v-btn class="watchNowButton" text>Watch now</v-btn>
-        <!-- </v-toolbar-items> -->
+        <v-btn class="watchNowButton" text>Watch now</v-btn>
     </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    
+  },
+  methods: {
+   
+  }
+};
+</script>
 
 <style>
   
     .listBar {
-        position: relative;
+        /* position: sticky; */
         display: flex;
         width: 100%;
         height: 70px;
         display: flex;
         padding: 10px;
+        background-color: white;
         box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+        /* margin-top: 4px; */
+        /* top: 0px; */
+        z-index: 100;
     }
 
     .listLabel {
