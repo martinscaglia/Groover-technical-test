@@ -34,6 +34,7 @@
 <!-- CARD DISPLAY -->
 
         <div class="cardDisplayWrapper">
+            <!--  
             <v-card
             v-for="movie in movies"
             :key="movie.imdbId"
@@ -76,7 +77,7 @@
                         {{movie.plot}}
                     </div>
                 
-                    <!-- CHIPS -->
+                  
 
                     <v-chip-group
                     active-class="deep-purple accent-4 white--text"
@@ -88,7 +89,7 @@
             
                     </v-chip-group>
 
-                    <!-- BUTTON -->
+              
                     
                     <v-btn
                     color="deep-purple accent-4"
@@ -104,7 +105,7 @@
                 </v-card-text>
            
             </v-card>
-
+        -->
         </div>
     </div>
 </template>
@@ -116,12 +117,7 @@
             moviesInPlaylist: Number,
             movies: {
                 type: Array,
-                required: true
-            }
-        },
-        asyncData() {
-            return {
-
+                // required: true
             }
         },
         data() {

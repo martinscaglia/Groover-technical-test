@@ -11,7 +11,7 @@
               <FilterRow />
             </div>
             <div class="cardRow">
-              <Cards 
+              <Cards
               :moviesInPlaylist="movie"
               @updateMovie="updateMovieParent"/>
             </div>
@@ -25,6 +25,7 @@
         import FilterRow from '~/components/Filter.vue'
         import Cards from '~/components/Cards.vue'
         import List from '~/components/List.vue'
+        import axios from "axios";
         
         export default {
           components: {
@@ -34,19 +35,39 @@
             FilterRow,
             Cards
           },
+          async asyncData() {
+            let params = {
+              genre: 'All',
+              page: 1,
+              ratings: [0, 10],
+              years: [1915, 2019],
+              keywords: "",
+              limit: 25
+            }
+            try {
+              const res = await axios.post('http://localhost:3000/search', params);
+              console.log(res);
+            } catch (err) {
+              console.log(err);
+            }
+          },
           data() {
             return {
+              searchTerms: [],
               movie: Number,
               movieListIds: []
             }
           },
-          asyncData() {
-            return {
-
-            }
-        },
           created() {
-            this.movie = 0;
+            this.movie = 0; 
+
+            // default searchTerms
+            this.searchTerms.genre = "All";
+            this.searchTerms.page = 1;
+            this.searchTerms.ratings = [0, 10];
+            this.searchTerms.years = [1915, 2019];
+            this.searchTerms.keywords = "";
+            this.searchTerms.limit = 25;
           },
           // watch: {
           //   movie: function(oldVal, newVal) {
