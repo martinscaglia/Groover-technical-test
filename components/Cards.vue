@@ -44,7 +44,7 @@
             >
                 <v-img
                     width="430"
-                    src="movie.poster"
+                    :src="movie.poster"
                 ></v-img>
             
                 <v-card-title class="movieTitle">{{movie.title}}</v-card-title>
@@ -58,7 +58,7 @@
                         <div class="releaseYear">{{movie.year}} /</div>
 
                         <v-rating
-                            :value="4"
+                            :value="movie.rating / 2"
                             color="amber"
                             dense
                             half-increments
@@ -97,7 +97,6 @@
                     class="addButton"
                     id="button1"
                     @click="checkButtonType(1)"
-                    v-if=""
                     >
                     {{buttonText}}
                     </v-btn>
@@ -116,7 +115,7 @@
             moviesInPlaylist: Number,
             movieArray: {
                 type: Array,
-                //required: true
+                required: true
             }
         },
         data() {
