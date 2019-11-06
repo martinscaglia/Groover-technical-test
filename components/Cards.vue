@@ -43,11 +43,14 @@
             max-width="300"
             >
                 <v-img
-                    width="430"
-                    :src="movie.poster"
+                width="430"
+                :src="movie.poster"
                 ></v-img>
             
-                <v-card-title class="movieTitle">{{movie.title}}</v-card-title>
+                <v-card-title class="movieTitle">
+                    <div v-if="movie.title.length<22">{{movie.title}}</div>
+                    <div v-else>{{ movie.title.substring(0,22)+".." }}</div>
+                </v-card-title>
 
                 <v-card-text>
                     
@@ -55,29 +58,26 @@
                     class="row"
                     >
 
-                        <div class="releaseYear">{{movie.year}} /</div>
+                    <div class="releaseYear">{{movie.year}} /</div>
 
-                        <v-rating
-                            :value="movie.rating / 2"
-                            color="amber"
-                            dense
-                            half-increments
-                            readonly
-                            size="14"
-                            class="ratingOnCard"
-                        ></v-rating>
+                    <v-rating
+                    :value="movie.rating / 2"
+                    color="amber"
+                    dense
+                    half-increments
+                    readonly
+                    size="14"
+                    class="ratingOnCard"
+                    ></v-rating>
             
                     </v-row>
             
-                    <div class="director">
-                        Directed by Stanley Kubrick
-                    </div>
+                    <div class="director">{{ fetchDirector(movie.imdbId) }}</div>
             
                     <div class="synopsis">
-                        {{movie.plot}}
+                    <div v-if="movie.plot.length<194">{{movie.plot}}</div>
+                    <div v-else>{{ movie.plot.substring(0,194)+".." }}</div>
                     </div>
-                
-                  
 
                     <v-chip-group
                     active-class="deep-purple accent-4 white--text"
@@ -88,8 +88,6 @@
                     <v-chip>Thriller</v-chip>
             
                     </v-chip-group>
-
-              
                     
                     <v-btn
                     color="deep-purple accent-4"
@@ -110,6 +108,8 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
         props: {
             moviesInPlaylist: Number,
@@ -119,7 +119,6 @@
             }
         },
         data() {
-            console.log(this.movieArray);
             return {
                 sortOptions: [
                     "Highest Rating",
@@ -128,10 +127,17 @@
                 buttonText: "+ Add to playlist",
             }
         },
-        // created() {
-        //     console.log("hello", this.moviesInPlaylist);
-        // },
         methods: {
+            async fetchDirector(movieId) {
+                try {
+                    await axios.post(`http://www.omdbapi.com/?i=${movieId}&apikey=bb5842e5`)
+                    .then((res) => {
+                        return ( res.data.Director )
+                    })
+                } catch(err) {
+                    console.log(err);
+                }
+            },
             addToPlaylist(movieId) {
                 this.$emit("updateMovie", 1);
                 //add to movie array
