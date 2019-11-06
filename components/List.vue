@@ -12,12 +12,14 @@ export default {
     props: {
             moviesInPlaylist: Number,
         },
-  mounted() {
+
+    mounted() {
+        
+    },
     
-  },
-  methods: {
-   
-  }
+    methods: {
+    
+    }
 };
 </script>
 

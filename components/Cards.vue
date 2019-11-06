@@ -34,9 +34,9 @@
 <!-- CARD DISPLAY -->
 
         <div class="cardDisplayWrapper">
-            <!--  
+             
             <v-card
-            v-for="movie in movies"
+            v-for="movie in movieArray"
             :key="movie.imdbId"
             :id="movie.imdbId"
             class="v-card"
@@ -105,22 +105,22 @@
                 </v-card-text>
            
             </v-card>
-        -->
+       
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Cards",
         props: {
             moviesInPlaylist: Number,
-            movies: {
+            movieArray: {
                 type: Array,
-                // required: true
+                //required: true
             }
         },
         data() {
+            console.log(this.movieArray);
             return {
                 sortOptions: [
                     "Highest Rating",

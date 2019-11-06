@@ -12,7 +12,7 @@
             </div>
             <div class="cardRow">
               <Cards
-              :moviesInPlaylist="movie"
+              :movieArray="movieArray"
               @updateMovie="updateMovieParent"/>
             </div>
           </div>
@@ -35,8 +35,9 @@
             FilterRow,
             Cards
           },
-          async asyncData() {
-            let params = {
+          // First fetch
+          async fetch({ store, params}) {
+            let searchTerms = {
               genre: 'All',
               page: 1,
               ratings: [0, 10],
@@ -45,30 +46,28 @@
               limit: 25
             }
             try {
-              const res = await axios.post('http://localhost:3000/search', params);
-              console.log("RES = ", res);
+              let { res } = await axios.post('http://localhost:3000/search', searchTerms);
+              if (res.data.length > 0) {
+                store.commit('setMovieArray', res.data);
+              } else {
+                  
+              }
             } catch (err) {
               console.log(err);
             }
-
           },
+          // 
           data() {
             return {
               searchTerms: [],
               movie: Number,
+              movieArray: Array,
               movieListIds: []
             }
           },
           created() {
-            this.movie = 0; 
-
-            // default searchTerms
-            // this.searchTerms.genre = "All";
-            // this.searchTerms.page = 1;
-            // this.searchTerms.ratings = [0, 10];
-            // this.searchTerms.years = [1915, 2019];
-            // this.searchTerms.keywords = "";
-            // this.searchTerms.limit = 25;
+            this.movie = 0;
+            this.movieArray = ["ok"];
           },
           // watch: {
           //   movie: function(oldVal, newVal) {
@@ -79,6 +78,11 @@
             updateMovieParent(value) {
               this.movie += value;
               console.log(this.movie);
+            },
+            updateMovieArray(data) {
+              console.log("UPDATE");
+              // this.movieArray = data;
+              // console.log("this.movieArray = ",this.movieArray);
             }
           }
         }
