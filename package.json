@@ -1,20 +1,26 @@
 {
-  "name": "tuto-nuxt",
+  "name": "Groover-technical-test",
   "version": "1.0.0",
   "description": "My praiseworthy Nuxt.js project",
   "author": "Martin",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "@nuxtjs/axios": "^5.8.0",
+    "connect-mongodb-session": "^2.2.0",
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "express-session": "^1.17.0",
+    "mongoose": "^5.7.8",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.9.0"
+    "@nuxtjs/vuetify": "^1.9.0",
+    "nodemon": "^1.18.9"
   }
 }

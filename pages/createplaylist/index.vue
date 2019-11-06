@@ -46,10 +46,11 @@
             }
             try {
               const res = await axios.post('http://localhost:3000/search', params);
-              console.log(res);
+              console.log("RES = ", res);
             } catch (err) {
               console.log(err);
             }
+
           },
           data() {
             return {
@@ -62,12 +63,12 @@
             this.movie = 0; 
 
             // default searchTerms
-            this.searchTerms.genre = "All";
-            this.searchTerms.page = 1;
-            this.searchTerms.ratings = [0, 10];
-            this.searchTerms.years = [1915, 2019];
-            this.searchTerms.keywords = "";
-            this.searchTerms.limit = 25;
+            // this.searchTerms.genre = "All";
+            // this.searchTerms.page = 1;
+            // this.searchTerms.ratings = [0, 10];
+            // this.searchTerms.years = [1915, 2019];
+            // this.searchTerms.keywords = "";
+            // this.searchTerms.limit = 25;
           },
           // watch: {
           //   movie: function(oldVal, newVal) {
