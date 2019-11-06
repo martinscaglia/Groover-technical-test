@@ -36,7 +36,7 @@
             Cards
           },
           // First fetch
-          async fetch({ store, params}) {
+          asyncData() {
             let searchTerms = {
               genre: 'All',
               page: 1,
@@ -45,29 +45,20 @@
               keywords: "",
               limit: 25
             }
-            try {
-              let { res } = await axios.post('http://localhost:3000/search', searchTerms);
-              if (res.data.length > 0) {
-                store.commit('setMovieArray', res.data);
-              } else {
-                  
-              }
-            } catch (err) {
-              console.log(err);
-            }
+            return axios.post('http://localhost:3000/search', searchTerms)
+            .then((res) => {
+              return { movieArray: res.data }
+            })
           },
-          // 
           data() {
             return {
               searchTerms: [],
               movie: Number,
-              movieArray: Array,
               movieListIds: []
             }
           },
           created() {
             this.movie = 0;
-            this.movieArray = ["ok"];
           },
           // watch: {
           //   movie: function(oldVal, newVal) {
@@ -80,9 +71,7 @@
               console.log(this.movie);
             },
             updateMovieArray(data) {
-              console.log("UPDATE");
-              // this.movieArray = data;
-              // console.log("this.movieArray = ",this.movieArray);
+
             }
           }
         }
