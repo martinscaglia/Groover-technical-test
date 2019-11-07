@@ -2,24 +2,28 @@
     <div class="filterContainer">
         <div class="filterBlock">
             <div class="genreTitle">Genre</div>
-            <v-chip class="chip" v-for="genre in genres" :key="genre">{{ genre }}</v-chip>
-            <!-- <hr> -->
+            <v-chip class="chip" v-for="genre in genres" :key="genre" @click="updateGenres(genre)">{{ genre }}</v-chip>
         </div>
         <div id="year" class="filterBlock">
             <div class="genreTitle">Year</div>
             <v-range-slider v-model="rangeValue"></v-range-slider>
-            <!-- <hr> -->
         </div>
         <div class="filterBlock">
             <div class="genreTitle">Rating</div>
             <v-rating color="rgba(255, 72, 0, 0.733)" v-model="rating"></v-rating>
-            <!-- <hr> -->
         </div>
     </div>
 </template>
 
 <script>
     export default {
+        props: {
+            searchTerms: {
+                    type: Object,
+                    required: true
+                },
+                getMovies: Function
+        },
         data() {
             return {
                 rating: 5,
@@ -43,16 +47,19 @@
                     "War",
                     "Western"
                 ],
-                rangeValue: [1915, 2019]
+                rangeValue: [1915, 2019],
+            };
+        },
+        methods: {
+            updateGenres(genre) {
+                this.searchTerms.genre = genre;
+                this.searchTerms.page = 1;
+                this.getMovies(this.searchTerms);
+            },
+        },
+        beforeMount() {
+        }
     };
-  },
-  methods: {
-    
-  },
-  beforeMount() {
-    
-  }
-};
     
 </script>
 

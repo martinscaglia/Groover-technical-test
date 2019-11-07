@@ -14,6 +14,13 @@ app.use(bodyParser.json({ limit: '10mb', extended: true }));
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
+var _log = console.log;
+ 
+console.log = function () {
+    if (arguments[0].indexOf('[HMR]') == -1) //remove hmr logging
+        return _log.apply(console, arguments);
+};
+
 async function start() {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
@@ -83,5 +90,6 @@ async function start() {
   db.once("open", () => {
     console.log("Database connected!");
   });
+  
 }
 start();
