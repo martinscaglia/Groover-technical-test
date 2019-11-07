@@ -77,12 +77,16 @@
         console.log("*** GET MOVIES ***");
         console.log("*** GET MOVIES PARAMS = ", params);
         try {
+          
           const res = await axios.post('http://localhost:3000/search', params);
+          console.log("res.data = ", res.data);
+
           if (res.data.length > 0) {
             if ((params.genre === "" || params.keywords === "") && params.page > 1) {
               this.movieArray.push(...res.data);
             } else {
               this.movieArray = res.data;
+              console.log("updated array = ", this.movieArray);
             }
             this.searchTerms = params;
           } else {

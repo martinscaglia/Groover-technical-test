@@ -28,7 +28,7 @@ async function start() {
     await nuxt.ready()
   }
 
-  app.post('/search', urlencodedParser, async (req, res, next) => {
+  app.post('/search', urlencodedParser, async (req, res) => {
     try {
       const { genre, ratings, years, page, limit, keywords } = req.body;
       const sorting = {};
@@ -60,14 +60,13 @@ async function start() {
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
-  // Listen the server
   app.listen(port, host)
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
 
-    mongoose.set("useNewUrlParser", true);
+  mongoose.set("useNewUrlParser", true);
   mongoose.set("useFindAndModify", false);
   mongoose.set("useCreateIndex", true);
   mongoose.set("useUnifiedTopology", true);

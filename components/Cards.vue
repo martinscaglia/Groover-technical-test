@@ -8,7 +8,12 @@
             <h3>They will be added to your playlist</h3>
         </div>
         <div class="cardOptionsWrapper">
-            <v-text-field class="searchInput" placeholder="What movie are you looking for?"></v-text-field>
+            <v-text-field 
+                v-on:keyup="keywordSearch()"
+                v-model="searchTerms.keywords"
+                class="searchInput" 
+                placeholder="What movie are you looking for?">
+            </v-text-field>
             <v-list class="sortBy"> 
                 <v-list-group
                 no-action
@@ -83,9 +88,8 @@
                     active-class="deep-purple accent-4 white--text"
                     class="movieGenre"
                     row
-                    
                     >
-                    <v-chip v-for="genre in movie.genres.slice(0,3)">{{genre}}</v-chip>
+                    <v-chip v-for="genre in movie.genres.slice(0,3)" :key="movie.imdbId + genre">{{genre}}</v-chip>
             
                     </v-chip-group>
                     
@@ -146,6 +150,11 @@
                 } catch(err) {
                     console.log(err);
                 }
+            },
+            keywordSearch() {
+                this.searchTerms.genre = 'All';
+                this.searchTerms.page = 1;
+                this.getMovies(this.searchTerms);
             },
             scroll() {
                 window.onscroll = async () => {
