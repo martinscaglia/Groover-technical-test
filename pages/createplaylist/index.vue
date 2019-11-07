@@ -76,7 +76,6 @@
     },
     methods: {
       async getMovies(params) {
-        console.log("params = ",params);
         try {
           const res = await axios.post('http://localhost:3000/search', params);
           if (res.data.length > 0) {
@@ -139,7 +138,7 @@ body {
 
 .filterRow {
   min-width: 270px;
-  height: 650px;
+  height: 660px;
   margin-left: 40px;
   margin-right: 40px;
   border: 1px solid rgba(0, 0, 0, 0.08);

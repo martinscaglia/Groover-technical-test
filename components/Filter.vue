@@ -3,7 +3,19 @@
         <div class="filterContainer">
             <div class="filterBlock">
                 <div class="genreTitle">Genre</div>
-                <v-chip class="chip" v-for="genre in genres" :key="genre" @click="updateGenres(genre)">{{ genre }}</v-chip>
+                <v-chip-group
+                    multiple
+                    column
+                    active-class="primary--text"
+                    >
+                    <v-chip 
+                        class="chip"
+                        v-for="genre in genres"
+                        :key="genre" 
+                        @click="updateGenres(genre)">
+                        {{ genre }}
+                    </v-chip>
+                </v-chip-group>
             </div>
             <div id="year" class="filterBlock">
                 <div class="yearTitle">Year</div>
@@ -99,12 +111,14 @@
                 this.filterModified = true;
             },
             clearFilters() {
-                console.log("CLEAR FILTERS");
                 this.searchTerms.genre = "All";
                 this.searchTerms.years = [1915, 2019];
-                this.searchTerms.ratings = 5;
-                this.getMovies(this.searchTerms);
+                this.searchTerms.page = 1;
+                this.searchTerms.ratings = [0, 10];
+                this.range = [1935, 1999];
+                this.rating = 5;
                 this.filterModified = false;
+                this.getMovies(this.searchTerms);
             }
         },
         beforeMount() {
@@ -115,6 +129,7 @@
 
 <style>
     .filterApp {
+        margin-top: -5px;
         height: 600px;
         background-color: rgba(255, 255, 255, 0) !important;
     }
@@ -158,7 +173,7 @@
         color: rgba(255, 72, 0, 0.733) !important; 
         border-radius: 30px;
         margin-left: 5px;
-        margin-top: 30px;
+        margin-top: 35px;
     }
     .clearButton:hover {
         background-color: rgba(255, 72, 0, 0.04);

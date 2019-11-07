@@ -168,7 +168,6 @@
                     let tmp = this.sortOptions[0];
                     this.sortOptions[0] = this.sortOptions[1];
                     this.sortOptions[1] = tmp;
-                    console.log("terms = ", this.searchTerms);
                     this.getMovies(this.searchTerms);
                 }
             },
