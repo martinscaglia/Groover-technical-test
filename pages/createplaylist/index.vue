@@ -138,7 +138,7 @@ body {
 
 .filterRow {
   min-width: 270px;
-  height: 620px;
+  height: 650px;
   margin-left: 40px;
   margin-right: 40px;
   border: 1px solid rgba(0, 0, 0, 0.08);
