@@ -99,9 +99,9 @@
                     text
                     class="addButton"
                     v-bind:id="`button${movie.imdbId}`"
-                    @click="checkButtonType(1)"
+                    @click="checkButtonType(movie.imdbId)"
                     >
-                    {{buttonText}}
+                    + Add to playlist
                     </v-btn>
 
                 </v-card-text>
@@ -134,7 +134,6 @@
                     "Highest Rating",
                     "Most Recent"
                 ],
-                buttonText: "+ Add to playlist",
                 director: '',
             }
         },
@@ -194,12 +193,12 @@
                 if (button.className.replace(/ .*/,'') == 'addButton') {
                     this.addToPlaylist(movieId);
                     button.className = 'removeButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
-                    this.buttonText = '- Remove from playlist'
+                    button.innerText = '- Remove from playlist'
                 }
                 else {
                     this.removeFromPlaylist(movieId);
                     button.className = 'addButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
-                    this.buttonText = "+ Add to playlist";
+                    button.innerText = "+ Add to playlist";
                 }
             }
         }
