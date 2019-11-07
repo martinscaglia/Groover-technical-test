@@ -274,7 +274,6 @@
         display: flex;
         margin-top: 10px;
     }
-
     .searchInput, .sortBy {
         max-width: 300px;
         min-width: 200px;
@@ -293,7 +292,6 @@
         margin-right: 40px;
         margin-bottom: 40px;
     }
-
     .row {
         margin-top: -5px;
         margin-bottom: 12px;
@@ -312,7 +310,6 @@
     .ratingOnCard {
         margin-left: 5px;
     }
-
     .movieGenre {
         margin-top: 5px;
     }
