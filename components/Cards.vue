@@ -72,7 +72,7 @@
             
                     </v-row>
             
-                    <div class="director">{{ fetchDirector(movie.imdbId) }}</div>
+                    <div v-if="fetchDirector(movie.imedbId)" class="director">Directed by {{ director }}</div>
             
                     <div class="synopsis">
                     <div v-if="movie.plot.length<194">{{movie.plot}}</div>
@@ -93,7 +93,7 @@
                     color="deep-purple accent-4"
                     text
                     class="addButton"
-                    id="button1"
+                    v-bind:id="`button${movie.imdbId}`"
                     @click="checkButtonType(1)"
                     >
                     {{buttonText}}
@@ -116,7 +116,12 @@
             movieArray: {
                 type: Array,
                 required: true
-            }
+            },
+            searchTerms: {
+                type: Object,
+                required: true
+            },
+            getMovies: Function
         },
         data() {
             return {
@@ -125,18 +130,34 @@
                     "Most Recent"
                 ],
                 buttonText: "+ Add to playlist",
+                director: '',
             }
+        },
+        mounted() {
+            this.scroll();
         },
         methods: {
             async fetchDirector(movieId) {
                 try {
                     await axios.post(`http://www.omdbapi.com/?i=${movieId}&apikey=bb5842e5`)
                     .then((res) => {
-                        return ( res.data.Director )
+                        return ( res.data.Director );
                     })
                 } catch(err) {
                     console.log(err);
                 }
+            },
+            scroll() {
+                window.onscroll = async () => {
+                    const bottom =
+                        document.documentElement.scrollTop + document.documentElement.clientHeight >=
+                        document.documentElement.scrollHeight - 100;
+                    if (bottom) {
+                        const params = this.searchTerms;
+                        params.page++;
+                        await this.getMovies(params);
+                    }
+                };
             },
             addToPlaylist(movieId) {
                 this.$emit("updateMovie", 1);
@@ -194,7 +215,7 @@
         display: flex;
         flex-wrap: wrap;
         margin-top: 10px;
-        width: 100%;
+        width: 105%;
     }
     .v-card {
         margin-right: 40px;
