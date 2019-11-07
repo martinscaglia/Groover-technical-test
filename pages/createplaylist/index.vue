@@ -3,8 +3,10 @@
     <div class="navBarContainer">
       <NavBar />
     </div>
-    <div v-if="movie > 0" class="listBarContainer">
-      <List :moviesInPlaylist="movie"/>
+    <div v-if="moviesInPlaylistCount > 0" class="listBarContainer">
+      <List 
+      :moviesInPlaylistCount="moviesInPlaylistCount"
+      :moviesInPlaylistArray="moviesInPlaylistArray"/>
     </div>
     <div class="chooseMovieContainer">
       <div class="filterRow">
@@ -17,7 +19,8 @@
         :movieArray="movieArray"
         :searchTerms="searchTerms"
         :getMovies="getMovies"
-        @updateMovie="updateMovieParent"/>
+        @updateMovieCount="updateMovieCount"
+        @updateMovieArray="updateMovieArray"/>
       </div>
     </div>
   </div>
@@ -50,7 +53,8 @@
           sort: "rating",
           limit: 25
         },
-        movie: Number,
+        moviesInPlaylistCount: Number,
+        moviesInPlaylistArray: Array,
         movieArray: Array,
         movieListIds: []
       }
@@ -72,7 +76,8 @@
       })
     },
     created() {
-      this.movie = 0;
+      this.moviesInPlaylistCount = 0;
+      this.moviesInPlaylistArray = [];
     },
     methods: {
       async getMovies(params) {
@@ -92,12 +97,21 @@
           console.log(err);
         }
       },
-      updateMovieParent(value) {
-        this.movie += value;
-        console.log(this.movie);
+      updateMovieCount(value) {
+        this.moviesInPlaylistCount += value;
       },
-      updateMovieArray(data) {
-
+      updateMovieArray(data, origin, method) {
+        if (origin === "all") {
+          if (data != "null")
+            this.moviesInPlaylistArray = data;
+          else
+            this.moviesInPlaylistArray = [];
+        } else {
+          if (data != "null")
+            this.moviesInPlaylistArray.push(...data);
+          if (method === "remove")
+            this.moviesInPlaylistArray = [];
+        }
       }
     }
   }

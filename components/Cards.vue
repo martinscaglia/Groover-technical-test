@@ -198,18 +198,18 @@
                 };
             },
             addAllToPlaylist() {
-                this.$emit("updateMovie", this.movieCount);
+                this.$emit("updateMovieCount", this.movieCount);
+                this.$emit("updateMovieArray", this.movieArray, "all", "null");
             },
             removeAllFromPlaylist() {
-                this.$emit("updateMovie", -(this.movieCount));
+                this.$emit("updateMovieCount", -(this.movieCount));
+                this.$emit("updateMovieArray", "all", "null");
             },
             addToPlaylist(movieId) {
-                this.$emit("updateMovie", 1);
-                //add to movie array
+                this.$emit("updateMovieCount", 1);
             },
             removeFromPlaylist(movieId) {
-                this.$emit("updateMovie", -1);
-                //remove from array
+                this.$emit("updateMovieCount", -1);
             },
             checkButtonType(movieId, type) {
                 if (type === "unique") {

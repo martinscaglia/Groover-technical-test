@@ -151,7 +151,10 @@
     .yearTitle {
         margin-bottom: 40px;
     }
-
+    .rangeSlider {
+        margin-left: 7px;
+        width: 210px;
+    }
     .chip {
         margin-left: 7px;
         margin-top: 7px;
