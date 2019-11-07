@@ -20,7 +20,7 @@
                 >
                     <template v-slot:activator>
                         <v-list-item-content>
-                            <v-list-item-title>Sort by <strong>{{sortOptions[0]}}</strong></v-list-item-title>
+                            <v-list-item-title id="sortLabel">Sort by <strong>{{sortOptions[0]}}</strong></v-list-item-title>
                         </v-list-item-content>
                     </template>
             
@@ -157,16 +157,19 @@
                 this.getMovies(this.searchTerms);
             },
             sort(param) {
-                if (param == "Highest Rating") {
+                var sortLabel = document.getElementById('sortLabel');
+                if (sortLabel.innerText != "Sort by " + param) {
+                    if (param == "Highest Rating") {
                     this.searchTerms.sort = 'rating';
-                } else {
-                    this.searchTerms.sort = 'year';
+                    } else {
+                        this.searchTerms.sort = 'year';
+                    }
+                    this.searchTerms.page = 1;
+                    let tmp = this.sortOptions[0];
+                    this.sortOptions[0] = this.sortOptions[1];
+                    this.sortOptions[1] = tmp;
+                    this.getMovies(this.searchTerms);
                 }
-                this.searchTerms.page = 1;
-                let tmp = this.sortOptions[0];
-                this.sortOptions[0] = this.sortOptions[1];
-                this.sortOptions[1] = tmp;
-                this.getMovies(this.searchTerms);
             },
             scroll() {
                 window.onscroll = async () => {
@@ -230,6 +233,10 @@
 
     .searchInput, .sortBy {
         max-width: 300px;
+    }
+    .sortBy {
+        border-radius: 30px !important;
+        background-color: rgba(255, 255, 255, 0) !important;
     }
 
     .cardDisplayWrapper {
