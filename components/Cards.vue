@@ -36,6 +36,17 @@
         
             </v-list>
         </div>
+        <div class="addAllToPlaylist">
+            <v-btn
+            color="deep-purple accent-4"
+            text
+            class="addButton"
+            id="addAllToPlaylistButton"
+            @click="checkButtonType(0, 'all')"
+            >
+            + Add all to playlist ({{movieCount}})
+            </v-btn>
+        </div>
 
 <!-- CARD DISPLAY -->
 
@@ -99,7 +110,7 @@
                     text
                     class="addButton"
                     v-bind:id="`button${movie.imdbId}`"
-                    @click="checkButtonType(movie.imdbId)"
+                    @click="checkButtonType(movie.imdbId, 'unique')"
                     >
                     + Add to playlist
                     </v-btn>
@@ -135,10 +146,12 @@
                     "Most Recent"
                 ],
                 director: '',
+                movieCount: 0
             }
         },
         mounted() {
             this.scroll();
+            this.movieCount = this.movieArray.length;
         },
         methods: {
             async fetchDirector(movieId) {
@@ -180,8 +193,15 @@
                         const params = this.searchTerms;
                         params.page++;
                         await this.getMovies(params);
+                        this.movieCount = this.movieArray.length;
                     }
                 };
+            },
+            addAllToPlaylist() {
+                this.$emit("updateMovie", this.movieCount);
+            },
+            removeAllFromPlaylist() {
+                this.$emit("updateMovie", -(this.movieCount));
             },
             addToPlaylist(movieId) {
                 this.$emit("updateMovie", 1);
@@ -191,17 +211,31 @@
                 this.$emit("updateMovie", -1);
                 //remove from array
             },
-            checkButtonType(movieId) {
-                var button = document.getElementById('button' + movieId);
-                if (button.className.replace(/ .*/,'') == 'addButton') {
-                    this.addToPlaylist(movieId);
-                    button.className = 'removeButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
-                    button.innerText = '- Remove from playlist'
-                }
-                else {
-                    this.removeFromPlaylist(movieId);
-                    button.className = 'addButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
-                    button.innerText = "+ Add to playlist";
+            checkButtonType(movieId, type) {
+                if (type === "unique") {
+                    var button = document.getElementById('button' + movieId);
+                    if (button.className.replace(/ .*/,'') === 'addButton') {
+                        this.addToPlaylist(movieId);
+                        button.className = 'removeButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
+                        button.innerText = '- Remove from playlist'
+                    }
+                    else {
+                        this.removeFromPlaylist(movieId);
+                        button.className = 'addButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
+                        button.innerText = "+ Add to playlist";
+                    }
+                } else {
+                    var button = document.getElementById('addAllToPlaylistButton');
+                    if (button.className.replace(/ .*/,'') === 'addButton') {
+                        this.addAllToPlaylist();
+                        button.className = 'removeButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
+                        button.innerText = '- Remove all from playlist'
+                    }
+                    else {
+                        this.removeAllFromPlaylist();
+                        button.className = 'addButton v-btn v-btn--flat v-btn--text theme--light v-size--default deep-purple--text text--accent-4';
+                        button.innerText = "+ Add all to playlist (" + this.movieCount + ")";
+                    }
                 }
             }
         }
@@ -293,6 +327,10 @@
     }
     .removeButton:hover {
         background-color: rgba(255, 72, 0, 0.7);
+    }
+    #addAllToPlaylistButton {
+        margin-left: 0px;
+        margin-bottom: 10px;
     }
 
 </style>

@@ -126,7 +126,7 @@ body {
   display: flex;
   margin-top: 4px;
   top: 0px;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .chooseMovieContainer {

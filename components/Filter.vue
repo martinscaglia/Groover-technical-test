@@ -4,9 +4,8 @@
             <div class="filterBlock">
                 <div class="genreTitle">Genre</div>
                 <v-chip-group
-                    multiple
                     column
-                    active-class="primary--text"
+                    active-class=""
                     >
                     <v-chip 
                         class="chip"
@@ -67,7 +66,7 @@
         },
         data: () => ({
             rating: 5,
-            range: [1935, 1999],
+            range: [1915, 2019],
             genres: [
                 "Action",
                 "Adventure",
@@ -115,7 +114,7 @@
                 this.searchTerms.years = [1915, 2019];
                 this.searchTerms.page = 1;
                 this.searchTerms.ratings = [0, 10];
-                this.range = [1935, 1999];
+                this.range = [1915, 2019];
                 this.rating = 5;
                 this.filterModified = false;
                 this.getMovies(this.searchTerms);
