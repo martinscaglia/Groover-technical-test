@@ -1,41 +1,45 @@
 <template>
     <div class="cardWrapper">
 
-<!-- TOP CONTENT -->
-
+        <!-- TOP CONTENT -->
+        <!-- *********** -->
         <div class="cardHeadWrapper">
             <h1>Choose your movies</h1>
             <h3>They will be added to your playlist</h3>
         </div>
         <div class="cardOptionsWrapper">
+
+            <!-- SEARCH BAR -->
             <v-text-field 
-                v-on:keyup="keywordSearch()"
-                v-model="searchTerms.keywords"
-                class="searchInput" 
-                placeholder="What movie are you looking for?">
+            v-on:keyup="keywordSearch()"
+            v-model="searchTerms.keywords"
+            class="searchInput" 
+            placeholder="What movie are you looking for?">
             </v-text-field>
+
+            <!-- SORT BY -->
             <v-list class="sortBy"> 
                 <v-list-group
                 no-action
                 >
                     <template v-slot:activator>
                         <v-list-item-content>
-                            <v-list-item-title id="sortLabel">Sort by <strong>{{sortOptions[0]}}</strong></v-list-item-title>
+                        <v-list-item-title id="sortLabel">Sort by <strong>{{sortOptions[0]}}</strong></v-list-item-title>
                         </v-list-item-content>
                     </template>
-            
                     <v-list-item
-                        v-for="(option) in sortOptions"
-                        :key="option"
-                        @change="sort(option)"
-                        link
+                    v-for="(option) in sortOptions"
+                    :key="option"
+                    @change="sort(option)"
+                    link
                     >
-                        <v-list-item-title v-text="option"></v-list-item-title>
+                    <v-list-item-title v-text="option"></v-list-item-title>
                     </v-list-item>
                 </v-list-group>
-        
             </v-list>
         </div>
+
+        <!-- ADD ALL TO PLAYLIST -->
         <div class="addAllToPlaylist">
             <v-btn
             color="deep-purple accent-4"
@@ -48,10 +52,11 @@
             </v-btn>
         </div>
 
-<!-- CARD DISPLAY -->
-
+        <!-- MOVIE CARDS DISPLAY -->
+        <!-- ******************* -->
         <div class="cardDisplayWrapper">
              
+             <!-- SINGLE V-CARD -->
             <v-card
             v-for="movie in movieArray"
             :key="movie.imdbId"
@@ -59,24 +64,27 @@
             class="v-card"
             max-width="300"
             >
+                <!-- MOVIE POSTER -->
                 <v-img
                 width="430"
                 :src="movie.poster"
                 ></v-img>
             
+                <!-- MOVIE TITLE -->
                 <v-card-title class="movieTitle">
                     <div v-if="movie.title.length<22">{{movie.title}}</div>
                     <div v-else>{{ movie.title.substring(0,22)+".." }}</div>
                 </v-card-title>
 
+                <!-- MOVIE INFOS SECTION -->
                 <v-card-text>
-                    
                     <v-row
                     class="row"
                     >
-
+                    <!-- RELEASE YEAR -->
                     <div class="releaseYear">{{movie.year}} /</div>
 
+                    <!-- RATING -->
                     <v-rating
                     :value="movie.rating / 2"
                     color="amber"
@@ -86,25 +94,31 @@
                     size="14"
                     class="ratingOnCard"
                     ></v-rating>
-            
                     </v-row>
             
+                    <!-- DIRECTOR -->
                     <!-- <div class="director">Directed by {{ fetchDirector(movie.imedbId) }}</div> -->
             
+                    <!-- SYNOPSIS -->
                     <div class="synopsis">
-                    <div v-if="movie.plot.length<194">{{movie.plot}}</div>
-                    <div v-else>{{ movie.plot.substring(0,194)+".." }}</div>
+                        <div v-if="movie.plot.length<194">{{movie.plot}}</div>
+                        <div v-else>{{ movie.plot.substring(0,194)+".." }}</div>
                     </div>
 
+                    <!-- GENRE -->
                     <v-chip-group
                     active-class="deep-purple accent-4 white--text"
                     class="movieGenre"
                     row
                     >
-                    <v-chip v-for="genre in movie.genres.slice(0,3)" :key="movie.imdbId + genre">{{genre}}</v-chip>
-            
+                    <v-chip 
+                    v-for="genre in movie.genres.slice(0,3)" 
+                    :key="movie.imdbId + genre">
+                        {{genre}}
+                    </v-chip>
                     </v-chip-group>
                     
+                    <!-- ADD TO PLAYLIST BUTTON-->
                     <v-btn
                     color="deep-purple accent-4"
                     text
@@ -114,11 +128,8 @@
                     >
                     + Add to playlist
                     </v-btn>
-
                 </v-card-text>
-           
             </v-card>
-       
         </div>
     </div>
 </template>
@@ -129,6 +140,7 @@
     export default {
         props: {
             moviesInPlaylist: Number,
+            getMovies: Function,
             movieArray: {
                 type: Array,
                 required: true
@@ -137,16 +149,15 @@
                 type: Object,
                 required: true
             },
-            getMovies: Function
         },
         data() {
             return {
-                sortOptions: [
-                    "Highest Rating",
-                    "Most Recent"
-                ],
                 director: '',
-                movieCount: 0
+                movieCount: 0,
+                sortOptions: [
+                        "Highest Rating",
+                        "Most Recent"
+                ],
             }
         },
         mounted() {
@@ -249,7 +260,6 @@
         display: block;
         margin-left: 5px;
     }
-
     .cardHeadWrapper {
         margin-top: 5px;
     }
@@ -260,7 +270,6 @@
         font-size: 15px;
         font-weight: 10 !important;
     }
-
     .cardOptionsWrapper {
         display: flex;
         margin-top: 10px;
@@ -274,7 +283,6 @@
         border-radius: 30px !important;
         background-color: rgba(255, 255, 255, 0) !important;
     }
-
     .cardDisplayWrapper {
         display: flex;
         flex-wrap: wrap;

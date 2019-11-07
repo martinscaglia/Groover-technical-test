@@ -1,5 +1,8 @@
 <template>
+    <!-- LIST ELEMENT -->
     <div id="listBar" class="listBar">
+
+        <!-- YOUR PLAYLIST MESSAGE -->
         <div v-if="parseInt(moviesInPlaylistCount) == 1" 
             class="listLabel">
             Your playlist contains {{parseInt(moviesInPlaylistCount)}} movie
@@ -8,8 +11,10 @@
             class="listLabel">
             Your playlist contains {{parseInt(moviesInPlaylistCount)}} movies
         </div>
+
+        <!-- MOVIE POSTERS -->
         <div class="moviePosters">
-            <div v-for="movie in moviesInPlaylistArray.slice(0,9)">
+            <div v-for="movie in moviesInPlaylistArray.slice(0,9)" v-bind:key="movie.imdbId">
                 <v-img
                 class="moviePoster"
                 width="36"
@@ -24,18 +29,22 @@
                 </div>
             </div>
         </div> 
+
+        <!-- V-SPACER -->
         <v-spacer></v-spacer>
+
+        <!-- WATCH NOW BUTTON -->
         <v-btn class="watchNowButton" text>Watch now</v-btn>
     </div>
 </template>
 
 <script>
-export default {
-    props: {
-        moviesInPlaylistCount: Number,
-        moviesInPlaylistArray: Array,
-    },
-};
+    export default {
+        props: {
+            moviesInPlaylistCount: Number,
+            moviesInPlaylistArray: Array,
+        },
+    };
 </script>
 
 <style>
@@ -50,7 +59,6 @@ export default {
         box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
         z-index: 100;
     }
-
     .listLabel, .listLabel2 {
         top: 40%;
         margin-left: 30px;

@@ -1,6 +1,8 @@
 <template>
+    <!-- V-APP -->
     <v-app class="filterApp">
         <div class="filterContainer">
+            <!-- GENRES BLOCK -->
             <div class="filterBlock">
                 <div class="genreTitle">Genre</div>
                 <v-chip-group
@@ -16,6 +18,7 @@
                     </v-chip>
                 </v-chip-group>
             </div>
+            <!-- YEAR RANGE BLOCK -->
             <div id="year" class="filterBlock">
                 <div class="yearTitle">Year</div>
                 <v-range-slider
@@ -33,6 +36,7 @@
                 >
                 </v-range-slider>
             </div>
+            <!-- STARS RATING BLOCK -->
             <div class="filterBlock">
                 <div class="genreTitle">Rating</div>
                 <div @click="updateRating()">
@@ -43,7 +47,7 @@
                 </div>
             </div>
         </div>
-      
+        <!-- CLEAR FILTERS BUTTON -->
         <v-btn
             v-if="filterModified"
             text
@@ -58,11 +62,11 @@
 <script>
     export default {
         props: {
+            getMovies: Function,
             searchTerms: {
                 type: Object,
                 required: true
             },
-            getMovies: Function
         },
         data: () => ({
             rating: 5,
@@ -87,8 +91,11 @@
                 "War",
                 "Western"
             ],
-            sliderStyle: { trackColor: 'rgba(0, 0, 0, 0.12)', color: 'rgba(255, 72, 0, 0.733)' },
-            filterModified: false
+            sliderStyle: { 
+                trackColor: 'rgba(0, 0, 0, 0.12)', 
+                color: 'rgba(255, 72, 0, 0.733)'
+            },
+            filterModified: false,
         }),
         methods: {
             updateGenres(genre) {
@@ -120,8 +127,6 @@
                 this.getMovies(this.searchTerms);
             }
         },
-        beforeMount() {
-        }
     };
 
 </script>
@@ -135,15 +140,21 @@
     .filterContainer {
         width: 220px;
     }
-
     .filterBlock {
         margin-top: 10px;
     }
-
+    .chip {
+        margin-left: 7px;
+        margin-top: 7px;
+        border: 1px solid rgba(255, 72, 0, 0.933) !important;
+        background-color: rgba(255, 255, 255, 0) !important;
+    }
+    .chip:hover {
+        background-color: rgba(255, 72, 0, 0.09) !important;
+    }
     #year {
         margin-top: 40px;
     }
-
     .genreTitle, .yearTitle {
         font-size: 18px;
         font-weight: 700;
@@ -155,21 +166,9 @@
         margin-left: 7px;
         width: 210px;
     }
-    .chip {
-        margin-left: 7px;
-        margin-top: 7px;
-        border: 1px solid rgba(255, 72, 0, 0.933) !important;
-        background-color: rgba(255, 255, 255, 0) !important;
-    }
-
-    .chip:hover {
-        background-color: rgba(255, 72, 0, 0.09) !important;
-    }
-
     .stars {
         background-color: rgba(255, 72, 0, 0.733) !important;
     }
-
     .clearButton {
         border: 1px solid rgba(255, 72, 0, 0.533) !important;
         color: rgba(255, 72, 0, 0.733) !important; 
