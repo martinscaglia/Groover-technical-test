@@ -10,7 +10,9 @@
         </div>
         <div class="filterBlock">
             <div class="genreTitle">Rating</div>
-            <v-rating color="rgba(255, 72, 0, 0.733)" v-model="rating"></v-rating>
+            <div @click="updateRating()">
+                <v-rating color="rgba(255, 72, 0, 0.733)" v-model="rating"></v-rating>
+            </div>
         </div>
     </div>
 </template>
@@ -19,52 +21,54 @@
     export default {
         props: {
             searchTerms: {
-                    type: Object,
-                    required: true
-                },
-                getMovies: Function
+                type: Object,
+                required: true
+            },
+            getMovies: Function
         },
-        data() {
-            return {
-                rating: 5,
-                genres: [
-                    "Action",
-                    "Adventure",
-                    "Animation",
-                    "Comedy",
-                    "Crime",
-                    "Documentary",
-                    "Drama",
-                    "Family",
-                    "Fantasy",
-                    "History",
-                    "Horror",
-                    "Music",
-                    "Mystery",
-                    "Romance",
-                    "Sport",
-                    "Thriller",
-                    "War",
-                    "Western"
-                ],
-                rangeValue: [1915, 2019],
-            };
-        },
+        data: () => ({
+            rating: 5,
+            genres: [
+                "Action",
+                "Adventure",
+                "Animation",
+                "Comedy",
+                "Crime",
+                "Documentary",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "History",
+                "Horror",
+                "Music",
+                "Mystery",
+                "Romance",
+                "Sport",
+                "Thriller",
+                "War",
+                "Western"
+            ],
+            rangeValue: [1915, 2019],
+        }),
         methods: {
             updateGenres(genre) {
                 this.searchTerms.genre = genre;
                 this.searchTerms.page = 1;
                 this.getMovies(this.searchTerms);
             },
+            updateRating() {
+                this.searchTerms.page = 1;
+                this.searchTerms.ratings = [0, (this.rating * 2)];
+                this.getMovies(this.searchTerms);
+            }
         },
         beforeMount() {
         }
     };
-    
+
 </script>
 
 <style>
-
     .filterContainer {
         width: 220px;
     }
@@ -95,6 +99,7 @@
         border: 1px solid rgba(255, 72, 0, 0.933) !important;
         background-color: rgba(255, 255, 255, 0) !important;
     }
+
     .chip:hover {
         background-color: rgba(255, 72, 0, 0.09) !important;
     }
@@ -102,5 +107,4 @@
     .stars {
         background-color: rgba(255, 72, 0, 0.733) !important;
     }
-
 </style>
