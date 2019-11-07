@@ -30,9 +30,9 @@ async function start() {
 
   app.post('/search', urlencodedParser, async (req, res) => {
     try {
-      const { genre, ratings, years, page, limit, keywords } = req.body;
+      const { genre, ratings, years, page, limit, keywords, sort } = req.body;
       const sorting = {};
-      sorting['rating'] = -1;
+      sorting[sort] = -1;
       const skip = limit * (page - 1);
       const count = limit * page;
       const queryTerms = [

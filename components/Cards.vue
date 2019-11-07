@@ -27,6 +27,7 @@
                     <v-list-item
                         v-for="(option) in sortOptions"
                         :key="option"
+                        @change="sort(option)"
                         link
                     >
                         <v-list-item-title v-text="option"></v-list-item-title>
@@ -154,6 +155,18 @@
             keywordSearch() {
                 this.searchTerms.genre = 'All';
                 this.searchTerms.page = 1;
+                this.getMovies(this.searchTerms);
+            },
+            sort(param) {
+                if (param == "Highest Rating") {
+                    this.searchTerms.sort = 'rating';
+                } else {
+                    this.searchTerms.sort = 'year';
+                }
+                this.searchTerms.page = 1;
+                let tmp = this.sortOptions[0];
+                this.sortOptions[0] = this.sortOptions[1];
+                this.sortOptions[1] = tmp;
                 this.getMovies(this.searchTerms);
             },
             scroll() {

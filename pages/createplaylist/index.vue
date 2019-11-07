@@ -47,6 +47,7 @@
           ratings: [0, 10],
           years: [1915, 2019],
           keywords: "",
+          sort: "rating",
           limit: 25
         },
         movie: Number,
@@ -62,6 +63,7 @@
         ratings: [0, 10],
         years: [1915, 2019],
         keywords: "",
+        sort: "rating",
         limit: 25
       }
       return axios.post('http://localhost:3000/search', searchTerms)
@@ -77,7 +79,7 @@
         console.log("*** GET MOVIES ***");
         console.log("*** GET MOVIES PARAMS = ", params);
         try {
-          
+
           const res = await axios.post('http://localhost:3000/search', params);
           console.log("res.data = ", res.data);
 
