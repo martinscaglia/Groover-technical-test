@@ -1,38 +1,47 @@
 <template>
-        <v-app class="filterApp">
-    <div class="filterContainer">
-        <div class="filterBlock">
-            <div class="genreTitle">Genre</div>
-            <v-chip class="chip" v-for="genre in genres" :key="genre" @click="updateGenres(genre)">{{ genre }}</v-chip>
-        </div>
-        <div id="year" class="filterBlock">
-            <div class="yearTitle">Year</div>
-            <v-range-slider
-                v-model="range"
-                :max="2019"
-                :min="1915"
-                :thumb-size="34"
-                :color="sliderStyle.color"
-                :track-color="sliderStyle.trackColor"
-                :thumb-color="sliderStyle.color"
-                thumb-label="always"
-                :enable-cross=false
-                class="rangeSlider"
-                @change="updateYearRange(range[0], range[1])"
-            >
-            </v-range-slider>
-        </div>
-        <div class="filterBlock">
-            <div class="genreTitle">Rating</div>
-            <div @click="updateRating()">
-                <v-rating
-                color="rgba(255, 72, 0, 0.733)" 
-                v-model="rating">
-                </v-rating>
+    <v-app class="filterApp">
+        <div class="filterContainer">
+            <div class="filterBlock">
+                <div class="genreTitle">Genre</div>
+                <v-chip class="chip" v-for="genre in genres" :key="genre" @click="updateGenres(genre)">{{ genre }}</v-chip>
+            </div>
+            <div id="year" class="filterBlock">
+                <div class="yearTitle">Year</div>
+                <v-range-slider
+                    v-model="range"
+                    :max="2019"
+                    :min="1915"
+                    :thumb-size="34"
+                    :color="sliderStyle.color"
+                    :track-color="sliderStyle.trackColor"
+                    :thumb-color="sliderStyle.color"
+                    thumb-label="always"
+                    :enable-cross=false
+                    class="rangeSlider"
+                    @change="updateYearRange(range[0], range[1])"
+                >
+                </v-range-slider>
+            </div>
+            <div class="filterBlock">
+                <div class="genreTitle">Rating</div>
+                <div @click="updateRating()">
+                    <v-rating
+                    color="rgba(255, 72, 0, 0.733)" 
+                    v-model="rating">
+                    </v-rating>
+                </div>
             </div>
         </div>
-    </div>
-</v-app>
+      
+        <v-btn
+            v-if="filterModified"
+            text
+            class="clearButton"
+            @click="clearFilters()"
+            >
+            x Clear filters
+        </v-btn>
+    </v-app>
 </template>
 
 <script>
@@ -68,23 +77,34 @@
                 "Western"
             ],
             sliderStyle: { trackColor: 'rgba(0, 0, 0, 0.12)', color: 'rgba(255, 72, 0, 0.733)' },
+            filterModified: false
         }),
         methods: {
             updateGenres(genre) {
                 this.searchTerms.genre = genre;
                 this.searchTerms.page = 1;
                 this.getMovies(this.searchTerms);
+                this.filterModified = true;
             },
             updateYearRange(r1, r2) {
-                let newRange = [r1, r2];
-                this.searchTerms.years = newRange;
+                this.searchTerms.years = [r1, r2];
                 this.searchTerms.page = 1;
                 this.getMovies(this.searchTerms);
+                this.filterModified = true;
             },
             updateRating() {
                 this.searchTerms.page = 1;
                 this.searchTerms.ratings = [0, (this.rating * 2)];
                 this.getMovies(this.searchTerms);
+                this.filterModified = true;
+            },
+            clearFilters() {
+                console.log("CLEAR FILTERS");
+                this.searchTerms.genre = "All";
+                this.searchTerms.years = [1915, 2019];
+                this.searchTerms.ratings = 5;
+                this.getMovies(this.searchTerms);
+                this.filterModified = false;
             }
         },
         beforeMount() {
@@ -131,5 +151,16 @@
 
     .stars {
         background-color: rgba(255, 72, 0, 0.733) !important;
+    }
+
+    .clearButton {
+        border: 1px solid rgba(255, 72, 0, 0.533) !important;
+        color: rgba(255, 72, 0, 0.733) !important; 
+        border-radius: 30px;
+        margin-left: 5px;
+        margin-top: 30px;
+    }
+    .clearButton:hover {
+        background-color: rgba(255, 72, 0, 0.04);
     }
 </style>

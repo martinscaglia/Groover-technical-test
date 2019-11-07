@@ -76,6 +76,7 @@
     },
     methods: {
       async getMovies(params) {
+        console.log("params = ",params);
         try {
           const res = await axios.post('http://localhost:3000/search', params);
           if (res.data.length > 0) {

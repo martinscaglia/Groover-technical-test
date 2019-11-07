@@ -281,6 +281,9 @@
         margin-left: 40px;
         margin-top: 10px;
     }
+    .addButton:hover {
+        background-color: rgba(255, 72, 0, 0.04);
+    }
     .removeButton {
         border: 1px solid rgba(255, 72, 0, 0.533) !important;
         background-color: rgba(255, 72, 0, 0.55);
@@ -288,9 +291,6 @@
         border-radius: 30px;
         margin-left: 12px;
         margin-top: 10px;
-    }
-    .addButton:hover {
-        background-color: rgba(255, 72, 0, 0.04);
     }
     .removeButton:hover {
         background-color: rgba(255, 72, 0, 0.7);
