@@ -2,7 +2,7 @@
 
 > Here is my take on the technical test. 
 
-I used a personal API using an IMDB database containing movies.
+I used a personal API (Express/MongoDB) using an IMDB database containing movies.
 For the sake of consistency, I replaced the `/sendtrack/` route by `/createplaylist/`. 
 This is the only digression from the subject I made.
 
