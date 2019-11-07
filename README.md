@@ -1,22 +1,13 @@
 # Groover-technical-test
 
-> My praiseworthy Nuxt.js project
+> Here is my take on the technical test. 
 
-## Build Setup
+I used a personal API using an IMDB database containing movies.
+For the sake of consistency, I replaced the `/sendtrack/` route by `/createplaylist/`. 
+This is the only digression from the subject I made.
 
-``` bash
-# install dependencies
-$ npm run install
+More than 15 000 movies are available in total.
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## To run the project
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Just run `npm run hello` in the project :)
