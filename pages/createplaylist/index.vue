@@ -100,18 +100,11 @@
       updateMovieCount(value) {
         this.moviesInPlaylistCount += value;
       },
-      updateMovieArray(data, origin, method) {
-        if (origin === "all") {
-          if (data != "null")
-            this.moviesInPlaylistArray = data;
-          else
-            this.moviesInPlaylistArray = [];
-        } else {
-          if (data != "null")
-            this.moviesInPlaylistArray.push(...data);
-          if (method === "remove")
-            this.moviesInPlaylistArray = [];
-        }
+      updateMovieArray(data, method) {
+        if (method === "add")
+          this.moviesInPlaylistArray = data;
+        else
+          this.moviesInPlaylistArray = [];
       }
     }
   }

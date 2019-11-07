@@ -151,7 +151,8 @@
         },
         mounted() {
             this.scroll();
-            this.movieCount = this.movieArray.length;
+            if (this.movieArray.length > 0)
+                this.movieCount = this.movieArray.length;
         },
         methods: {
             async fetchDirector(movieId) {
@@ -199,11 +200,11 @@
             },
             addAllToPlaylist() {
                 this.$emit("updateMovieCount", this.movieCount);
-                this.$emit("updateMovieArray", this.movieArray, "all", "null");
+                this.$emit("updateMovieArray", this.movieArray, "add");
             },
             removeAllFromPlaylist() {
                 this.$emit("updateMovieCount", -(this.movieCount));
-                this.$emit("updateMovieArray", "all", "null");
+                this.$emit("updateMovieArray", this.movieArray, "remove");
             },
             addToPlaylist(movieId) {
                 this.$emit("updateMovieCount", 1);
