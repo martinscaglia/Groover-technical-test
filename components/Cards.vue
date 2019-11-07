@@ -82,10 +82,10 @@
                     <v-chip-group
                     active-class="deep-purple accent-4 white--text"
                     class="movieGenre"
-                    column
+                    row
+                    
                     >
-                    <v-chip>Horror</v-chip>
-                    <v-chip>Thriller</v-chip>
+                    <v-chip v-for="genre in movie.genres.slice(0,3)">{{genre}}</v-chip>
             
                     </v-chip-group>
                     
