@@ -89,7 +89,7 @@
             
                     </v-row>
             
-                    <div v-if="fetchDirector(movie.imedbId)" class="director">Directed by {{ director }}</div>
+                    <!-- <div class="director">Directed by {{ fetchDirector(movie.imedbId) }}</div> -->
             
                     <div class="synopsis">
                     <div v-if="movie.plot.length<194">{{movie.plot}}</div>
