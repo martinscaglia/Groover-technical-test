@@ -10,4 +10,4 @@ More than 15 000 movies are available in total.
 
 ## To run the project
 
-Just run `npm run hello` in the project :) Everything is already setup for you.
+Just run `npm run project` in the project root folder :) Everything is already setup for you.
