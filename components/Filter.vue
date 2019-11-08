@@ -7,7 +7,8 @@
                 <div class="genreTitle">Genre</div>
                 <v-chip-group
                     column
-                    active-class=""
+                    :mandatory="mandatory"
+                    active-class="primary--text"
                     >
                     <v-chip 
                         class="chip"
@@ -96,6 +97,7 @@
                 color: 'rgba(255, 72, 0, 0.733)'
             },
             filterModified: false,
+            mandatory: false,
         }),
         methods: {
             updateGenres(genre) {
