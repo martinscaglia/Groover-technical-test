@@ -4,7 +4,7 @@
 
 I used a personal API (Express/MongoDB) using an IMDB database containing movies.
 For the sake of consistency, I replaced the `/sendtrack/` route by `/createplaylist/`. 
-This is the only digression from the subject I made.
+This is the only digression I made from the subject.
 
 More than 15 000 movies are available in total.
 
